@@ -1,0 +1,22 @@
+# Virtual environment
+rag_env/
+venv/
+.env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Model cache
+.cache/
+.cache/*
+models/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
