@@ -94,6 +94,8 @@ http://127.0.0.1:8001/docs
 **Endpoint:** `POST /upload`  
 **Description:** Upload a PDF or TXT document for ingestion.
 
+---
+
 ### Ask Question
 **Endpoint:** `POST /query`
 
@@ -102,10 +104,13 @@ http://127.0.0.1:8001/docs
 {
   "question": "What is Rimpi Ghosh's educational background?"
 }
+```
+**Sample Response:**
+```json
 {
   "answer": "Rimpi Ghosh completed her schooling at New English Medium School..."
 }
-
+```
 ## 🧠 Mandatory Explanations
 
 ### 🔹 Chunking Strategy
@@ -124,25 +129,20 @@ This strategy ensures efficient retrieval without exceeding LLM context limits.
 ### 🔹 Retrieval Failure Case
 
 A retrieval failure case was observed when a question was asked that was **not present in the uploaded document**.
-
 **Example:**
 > “What are Rimpi Ghosh’s future career goals?”
-
 In such cases, the system retrieves the closest semantic chunks but correctly avoids hallucination and responds that the information is **not available in the provided context**.
 
 ---
 
 ### 🔹 Metric Tracked
-
 The system tracks **latency**, measuring the time taken by the LLM to generate a response after retrieval.
-
 Latency is important for:
 - Evaluating system performance
 - Improving user experience
 - Comparing different model configurations
 
 ## ✅ Evaluation Alignment
-
 This project demonstrates:
 - Effective document chunking and embedding strategy
 - Accurate semantic retrieval using FAISS
@@ -151,7 +151,5 @@ This project demonstrates:
 - Clear explanation of architectural and design decisions
 
 ## 🧩 System Architecture Overview
-
 The following diagram illustrates the end-to-end architecture of the RAG-based Question Answering System, covering both document ingestion and question answering flows.
-
 ![RAG Architecture Diagram](rag-architecture-diagram.png)
